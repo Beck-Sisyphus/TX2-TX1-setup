@@ -1,5 +1,10 @@
 # 1. flash the TX2
-## download jetpack L4T 3.0
+## 1.1 download jetpack L4T 3.0
+Provided by TA: JetPack-L4T-3.0-linux.run
+put in a new folder.
+run:
+`sudo .JetPack-L4T-3.0-linux.run`
+
 * do not run the script in sudo mode when installing host components
 * do not install OpenCV4Tegra V2.4 for TX2, we will use OpenCV3
 * for TX2 you may need to flash it tiwce, one just flash the OS, the other install cuda
