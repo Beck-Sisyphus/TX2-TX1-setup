@@ -3,7 +3,10 @@
 
 Provided by TA: JetPack-L4T-3.0-linux.run
 
-put it in a new folder. Run: `sudo .JetPack-L4T-3.0-linux.run`
+put it in a new folder. Run:
+`chmod +x JetPack-L4T-3.0-linux.run`
+`sudo .JetPack-L4T-3.0-linux.run`
+
 
 Warning:
 * do not run the script in sudo mode when installing host components
