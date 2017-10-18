@@ -26,10 +26,15 @@ run: `sudo arp-scan --interface=eth0 192.168.1.0/24 | grep NVIDIA'
 find your TX2 device.
 
 ssh to your TX2 and run:
+
 `sudo apt-get install git`
+
 `mkdir setup`
+
 `git clone https://github.com/gaowenliang/TX2-TX1-setup.git`
+
 `sudo ./install.sh`
+
 `sudo reboot`
 
 to install USB device and reboot.
