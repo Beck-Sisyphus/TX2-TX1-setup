@@ -4,7 +4,9 @@
 Provided by TA: JetPack-L4T-3.0-linux.run
 
 put it in a new folder. Run:
+
 `chmod +x JetPack-L4T-3.0-linux.run`
+
 `sudo .JetPack-L4T-3.0-linux.run`
 
 
