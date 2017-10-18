@@ -21,11 +21,23 @@ password: nvidia
 
 # 2. Install basic tools
 
+connect to lab WiFi: indigo or indigo5G,install arp-scan and
+run: `sudo arp-scan --interface=eth0 192.168.1.0/24 | grep NVIDIA'
+find your TX2 device.
+
+ssh to your TX2 and run:
+`sudo apt-get install git`
+`mkdir setup`
+`git clone https://github.com/gaowenliang/TX2-TX1-setup.git`
+`sudo ./install.sh`
+`sudo reboot`
+
+to install USB device and reboot.
+
 run one by one:
 
 `sudo apt-get install terminator -y`
 
-`sudo apt-get install git`
 
 `sudo apt-get install cmake -y`
 
@@ -33,7 +45,10 @@ run one by one:
 
 `sudo apt-get install htop`
 
-# 2. Eigen manuly
+# 3. Install ROS
+follow http://wiki.ros.org/Installation/Ubuntu
+
+# 4. Eigen manuly
 ## install Eigen stable release V3.3.3
 
 * http://eigen.tuxfamily.org/index.php?title=Main_Page
@@ -53,7 +68,7 @@ TX2:
 
 this step will take really a long time
 
-# 3. ceres manly
+# 5. ceres manly
 normal install, without eigen, need pass all ctest cases
 
 typical Ceres test bench mark is 131s for TX2
@@ -80,7 +95,7 @@ ceres-solver.org/ceres-solver-1.12.0.tar.gz
 
 `make install`
 
-# 4. Download buildOpencvTX2, remove libeigen3-dev, install Opencv manuly
+# 6. Download buildOpencvTX2, remove libeigen3-dev, install Opencv manuly
 
 https://github.com/jetsonhacks/buildOpenCVTX2/blob/master/buildOpenCV.sh
 
