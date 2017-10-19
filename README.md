@@ -1,3 +1,4 @@
+
 # 1. flash the TX2
 ## 1.1 download jetpack L4T 3.0
 
@@ -19,6 +20,7 @@ Warning:
 After flash, the system can be launch.
 
 username: nvidia
+
 password: nvidia
 
 # 2. Install basic tools
@@ -32,6 +34,8 @@ ssh to your TX2 and run:
 `sudo apt-get install git`
 
 `mkdir setup`
+
+`cd setup`
 
 `git clone https://github.com/gaowenliang/TX2-TX1-setup.git`
 
@@ -73,7 +77,9 @@ TX2:
 
 `make check`
 
-this step will take really a long time
+this step will take really a long time.
+Then run:
+`sudo make install`
 
 # 5. ceres manly
 normal install, without eigen, need pass all ctest cases
