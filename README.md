@@ -116,20 +116,7 @@ in opencv V3.2.0
 opencv_test_cudev will fail, but acturally, it success, ctest made a wrong test compare between 2.0 and 2.
  
 # 5. ros-desktop source install, remove eigen & opencv3
-
-# ROSTX2
-
-you could install ROS through apt, but it might conflict with OPENCV3-CUDA
-
-1 if ROS deb init fall try
-
-`sudo c_rehash /etc/ssl/certs`
-
-2 to enable best performence mode use:
-
-`~$ sudo nvpmodel -m 0`
-
-`~$ sudo ./jecson_clock.sh`
+ 
 
 ## SDL
 `sudo apt-get install libsdl-image1.2-dev 
@@ -147,35 +134,7 @@ check CUDA version
 
 `nvcc -V`
 
-
-# Enable /dev/ttyTHS2 (UART1) for TX2
-
-## install dtc 
-```
-sudo apt-get install device-tree-compiler
-```
-## rewrite kernel
-
-### enable tty THS2
-```
-sudo -s
-cd /tmp
-dtc -I dtb -O dts -o extracted.dts /boot/tegra186-quill-p3310-1000-c03-00-base.dtb
-# Search for "serial@c280000" where it is a block of code and not just a single line...
-# Change status = "disabled" to status = "okay";
-# Build a modified version:
-dtc -I dts -O dtb -o /boot/modified_tegra186-quill-p3310-1000-c03-00-base.dtb extracted.dts
-cd /boot/extlinux
-# edit extlinux.conf...add this line between MENU LABEL line and LINUX line:
-FDT /boot/modified_tegra186-quill-p3310-1000-c03-00-base.dtb
-```
-### enable CAN buss
-
-ref: http://www.jetsonhacks.com/2017/03/25/build-kernel-and-modules-nvidia-jetson-tx2/
-
-```
-$ git clone https://github.com/jetsonhacks/buildJetsonTX2Kernel.git
-```
+ 
 
 ### use Manifold2 board USBs
 
