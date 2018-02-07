@@ -2,17 +2,11 @@
 # 1. flash the TX2
 ## 1.1 download jetpack L4T 3.0
 
-Provided by TA: JetPack-L4T-3.0-linux.run
-
-put it in a new folder. Run:
-
-`chmod +x JetPack-L4T-3.0-linux.run`
-
-`./JetPack-L4T-3.0-linux.run`
-
+Follow [flash-small-TX2](https://github.com/gaowenliang/flash-small-TX2 "flash-small-TX2")
+to flash the TX2
 
 Warning:
-* do not run the script in sudo mode when installing host components
+
 * do not install OpenCV4Tegra V2.4 for TX2, we will use OpenCV3
 * for TX2 you may need to flash it tiwce, one just flash the OS, the other install cuda
 * if the tx1/tx2 cannot boot the GUI, but shut down after finish loading BIOS, try to change a more powerful power source
@@ -25,7 +19,7 @@ password: nvidia
 
 # 2. Install basic tools
 
-connect to lab WiFi: indigo or indigo5G,install arp-scan and
+connect host and TX2 on the same local network, install arp-scan and
 run: `sudo arp-scan --interface=eth0 192.168.1.0/24 | grep NVIDIA'
 find your TX2 device.
 
@@ -57,12 +51,15 @@ run one by one:
 `sudo apt-get install htop`
 
 # 3. Install ROS
-follow http://wiki.ros.org/Installation/Ubuntu
+
+follow [ROS](http://wiki.ros.org/Installation/Ubuntu "ROS")
+
+follow [installROSTX2](https://github.com/gaowenliang/installROSTX2 "installROSTX2")
 
 # 4. Eigen manuly
 ## install Eigen stable release V3.3.3
 
-* http://eigen.tuxfamily.org/index.php?title=Main_Page
+follow [eigen](http://eigen.tuxfamily.org/index.php?title=Main_Page "eigen")
 
 * it will fail 6 ctest cases out of 798
 * or if you build BTL, fail 13 ctest cases out of 832
@@ -70,14 +67,13 @@ follow http://wiki.ros.org/Installation/Ubuntu
 host:
 
 `scp ~/Downloads/eigen-eigen-67e894c6cd8f.tar.bz2 ubuntu@<YOUR_SSH PATH>:~/`
- 
 
 TX2:
 `cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_INSTALL_PREFIX=/usr/local -DEIGEN_TEST_CXX11=ON -DEIGEN_CUDA_COMPUTE_ARCH=62 -DEIGEN_BUILD_BTL=ON`
 
 `make check`
+this step will take really a long time. Not necessary to check.
 
-this step will take really a long time.
 Then run:
 `sudo make install`
 
@@ -110,14 +106,10 @@ ceres-solver.org/ceres-solver-1.12.0.tar.gz
 
 # 6. Download buildOpencvTX2, remove libeigen3-dev, install Opencv manuly
 
-https://github.com/jetsonhacks/buildOpenCVTX2/blob/master/buildOpenCV.sh
-
+follow [buildOpenCVTX2](https://github.com/gaowenliang/buildOpenCVTX2 "buildOpenCVTX2")
 in opencv V3.2.0
 opencv_test_cudev will fail, but acturally, it success, ctest made a wrong test compare between 2.0 and 2.
  
-# 5. ros-desktop source install, remove eigen & opencv3
- 
-
 ## SDL
 `sudo apt-get install libsdl-image1.2-dev 
 
